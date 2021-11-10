@@ -48,6 +48,7 @@
 \nomenclature{\(P(\textbf{\textit{x}})\)}{Penalty Function.}
 \nomenclature{\(\textbf{H}\)}{Hessian.}
 \nomenclature{\(\textit{\underline{d}}\)}{Feasible Direction.}
+\nomenclature{\(\textit{\underline{y}}\)}{Tangent Vector.}
 
 \printnomenclature
 
@@ -67,12 +68,12 @@ Optimisation is the process of maximising or minimising a desired objective func
 
 \subsection{Brief history of Optimisation.}
 \begin{enumerate}
-    \item Euclid of Alexandria (325-265 BCE) solved early optimisation problems in geometry.
+    \item Euclid of Alexandria (325-265 BCE) solved early optimisation problems in geometry. \cite{historyopt}
     \item Heron of Alexandria (10-75 CE) showed that light travels between points through the path of shortest length.
     \item Pappus of Alexandria (290–350 CE), among his many contributions to optimization, argued that the hexagon repeated in honeycomb is the optimal regular polygon for storing honey; its hexagonal structure uses the least material to create a lattice of cells over a plane.
     \item The use of a gradient method (requiring derivatives of the functions) for minimization was first presented by Cauchy in 1847. 
-    \item Karush, Kuhn, and Tucker who derived the “KKT” optimality conditions for constrained problems [1939, 1951]. Thereafter,particularly in the 1960s, several numerical methods to solve nonlinear optimization problems were developed.
-    \item Methods for unconstrained minimization include conjugate gradient methods of Fletcher and Reeves [1964] and the variable metric methods of Davidon–Fletcher–Powell (DFP) in [1959].
+    \item Karush, Kuhn, and Tucker who derived the “KKT” optimality conditions for constrained problems [1939, 1951]. \cite{historyopt} Thereafter,particularly in the 1960s, several numerical methods to solve nonlinear optimization problems were developed.
+    \item Methods for unconstrained minimization include conjugate gradient methods of Fletcher and Reeves [1964] and the variable metric methods of Davidon–Fletcher–Powell (DFP) in [1959]. \cite{chandrupatla}
     \item  Rosenbrock's method of orthogonal directions [1960], simplex method of Nelder and Meade [1965]. 
     \end{enumerate}
     
@@ -136,7 +137,7 @@ where H(x*) is the Hessian of f at x*.
 \subsection{Second Order Sufficient Condition}
 Suppose \textbf{\underline{f}} is a function from \textbf{$\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}$} is twice differentiable such that 
 \begin{equation}
-    \nabla f(x*)=0    
+    \nabla f(x^{*})=0    
 \end{equation}
 and
 \begin{equation}
@@ -248,7 +249,7 @@ The conjugate direction algorithm:
 Instead of making use of pre-specified conjugate directions, CGA computes the directions as the algorithm progresses. At every iteration, direction is calculated as linear combination of previous direction and current gradient, making sure that the directions are mutually \textit{\textbf{Q}-conjugate}.\\The Conjugate Gradient Algorithm proceeds as follows: 
 \begin{enumerate}
     \item Set k:=0, select initial point $x^{(0)}$
-    \item $g^{(0)}= \nabla f(x^{(0)}. $ If $g^{(0)} = 0$ stop; else $d^{(0)}= -g^{(0)}$
+    \item $g^{(0)}= \nabla f(x^{(0)}). $ If $g^{(0)} = 0$ stop; else $d^{(0)}= -g^{(0)}$
     \item $\alpha_{k}= \frac{-g^{(k)T}d^{(k)}}{d^{(k)T}Qd^{(k)}}.$
     \item $x^{(k+1)}  = x^{(k)}+ \alpha_{k}d^{(k)}$
     \item $g^{(k+1)}= \nabla f(x^{(k+1)}.$ If $g^{(k+1)}=0$; STOP
@@ -320,8 +321,8 @@ The updation formulae for $\textbf{H}^{(k+1)}$ from $\textbf{H}^{(k)}$ comes in 
 
 \section{Non-Linear Constrained Optimisation}
 In addition to an objective function, a constrained optimisation problem has constraints imposed on the solution that can be in the form of equality or inequality constraints, and any points satisfying these constraints is termed as a feasible point. Collection of all such feasible points is called a feasible set. When the constraints are linear it is called a linear constrained optimisation problem or non-linear. If we have an `\textit{n}' dimensional function and `\textit{m}' constraints then the solution set will lie on a (n-m) dimensional surface.\\[1\baselineskip]
-\textbf{\underline{Regular Point}}: A point $\textbf{x}^{*}$ satisying the constraints is called a `\textbf{Regular Point}' if all columns of the Jacobian matrix of the constraints are linearly independent.\\
-\textbf{\underline{Tangent Space}} :In mathematics, the tangent space of a manifold generalizes to higher dimensions the notion of tangent planes to surfaces in three dimensions and tangent lines to curves in two dimensions. In the context of physics the tangent space to a manifold at a point can be viewed as the space of possible velocities for a particle moving on the manifold. The tangent space at a point $\textbf{x}^{*}$ on the surface $\textbf{S}= [\textbf{x}\epsilon \mathbb{R}^{n} | \textbf{h}(x)=0]$ where h $\epsilon$ $C^{1}$ is the set
+\textbf{\underline{Regular Point}}: A point $\textbf{x}^{*}$ satisying the constraints is called a `\textbf{Regular Point}' if all columns of the Jacobian matrix of the constraints are linearly independent.\cite{regularpoint}\\ 
+\textbf{\underline{Tangent Space}} :In mathematics, the tangent space of a manifold generalizes to higher dimensions the notion of tangent planes to surfaces in three dimensions and tangent lines to curves in two dimensions. In the context of physics the tangent space to a manifold at a point can be viewed as the space of possible velocities for a particle moving on the manifold. \cite{tangentspace} The tangent space at a point $\textbf{x}^{*}$ on the surface $\textbf{S}= [\textbf{x}\epsilon \mathbb{R}^{n} | \textbf{h}(x)=0]$ where h $\epsilon$ $C^{1}$ is the set
 \begin{equation}
     T(x^{*})= [\underline{y} | Dh(\underline{x}^{*})\textbf{\underline{y}}]= 0
 \end{equation}
@@ -329,7 +330,7 @@ In addition to an objective function, a constrained optimisation problem has con
 \begin{equation}
     N(x^{*})= [\underline{x} \epsilon \mathbb{R}^{n} | \underline{x} = Dh(\underline{x}^{*})^{T}\underline{z}, z \epsilon \mathbb{R}^{n}]
 \end{equation}
-It is orthogonal to the Tangent Space.
+It is orthogonal to the Tangent Space. \cite{normalspace}
 \subsection{Lagrange Theorem:}
 For n=2 and m=1, if point $x^{*}$ is a minimiser of \textbf{f}: $\mathbb{R}^{2}\rightarrow\mathbb{R}$ subjected to constraint h(\underline{x} )=0, then $\nabla f (x^{*})$ and $\nabla h(\underline{x}^{*})$  are parallel and there exists a scalar $\lambda ^{*}$ such that
 \begin{equation}
