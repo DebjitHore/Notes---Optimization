@@ -57,7 +57,7 @@
 \clearpage
 \section{Introduction}
 ``Mathematics is the language with which God wrote the universe"-Galileo.\\[1\baselineskip]
-Optimisation is the process of maximising or minimising a desired objective function, while satisfying the prevailing constraints. Nature has infinite examples where an optimum state of the system is sought. As such the application of ``optimisation'' can be seen in nature as well as human creations. Some common examples are as follows:
+Optimisation is the process of maximising or minimising a desired objective function, while satisfying the prevailing constraints. Nature has infinite examples where an optimum state of the system is sought \cite{timwheeleroptimisation} . As such the application of ``optimisation'' can be seen in nature as well as human creations. Some common examples are as follows:
 {\begin{enumerate}
     \item A liquid droplet in zero gravity attaining a perfect sphere shape to minimise surface area for a given volume.
     \item Naturally occurring honeycomb structures ( which humans have effectively implemented and used ) are one of the most compact packaging arrangements.\
@@ -93,8 +93,6 @@ Optimisation is the process of maximising or minimising a desired objective func
 \draw [arrow] (pro3) -- (out1);
 \draw [arrow] (out1) -- (stop);
 \end{tikzpicture}
-
-You should add the citations as described here \cite{sadd2009elasticity}.
 
 \subsection{Types of Problems:}
 \begin{enumerate}
@@ -382,6 +380,10 @@ where $\gamma$ $\epsilon$ $\mathbb{R}$ is a positive constant called the \textit
 \end{enumerate}
 Clearly, for the unconstrained problem above to be a good approximation to the original problem, the penalty function P must be chosen appropriately. The role of the penalty function is to``penalize" points that are outside the feasible set.
 We would expect that the larger the value of the penalty parameter $\gamma$, the closer the approximated solution will be to the true solution, because points that violate  the constraints are penalized more heavily.
+
+\section{Conclusion.}
+Although this course served as an introductory step into the world of `\textit{Optimisation Algorithms}', and we got some introduction into the world of one dimensional and multidimensional unconstrained as well as constrained optimisation, there is a lot left to be explored.\\
+Some of the topics that are of utmost importance include Convex Optimisation, Multi-objective Optimisation, Probabilistic Surrogate Models, Stochastic Methods. These are of equal importance as the topics that have been covered in the course and can be used for further delving into the world of Algorithms and Optimisation. Machine Learning, Linear Regression, and Neural Networks can also be looked upon as means of minimising a given Cost Function.
 
 %
 %
